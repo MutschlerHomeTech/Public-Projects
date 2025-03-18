@@ -1,0 +1,75 @@
+# Title: MutschlerHome/hosts
+#
+# This hosts file is a personal collection of hosts to be blacklisted
+#
+# Date: 18 March 2025 20:11:00 (UTC)
+# Number of unique domains: 
+#
+# Fetch the latest version of this file: 
+# Project home page: 
+# Project releases: 
+#
+# ===============================================================
+
+s3.amazonaws.com
+s3-1.amazonaws.com # CNAME for (s3.amazonaws.com)
+.github.com
+.githubusercontent.com
+github.map.fastly.net # CNAME for (raw.githubusercontent.com)
+.gitlab.com
+.sourceforge.net
+.fls-na.amazon.com # alexa
+.control.kochava.com # alexa 2
+.device-metrics-us-2.amazon.com # alexa 3
+.amazon-adsystem.com # amazon app ads
+.px.moatads.com # amazon app 2
+.secure-gl.imrworldwide.com # amazon app 3
+.pixel.adsafeprotected.com # amazon app 4
+.bs.serving-sys.com # amazon app 5
+google.com
+www.google.com
+youtube.com
+www.youtube.com
+youtube-ui.l.google.com # CNAME for (youtube.com)
+stackoverflow.com
+www.stackoverflow.com
+dropbox.com
+www.dropbox.com
+www.dropbox-dns.com # CNAME for (dropbox.com)
+pbs.twimg.com # twitter images
+www.pbs.twimg.com # twitter images
+.pfsense.org
+.netgate.com
+gs-loc.apple.com
+www.gs-loc.apple.com
+v4ncsi.msedge.net
+.mparticle.map.fastly.net
+.teams.events.data.microsoft.com
+.microsoft.com
+.sendgrid.net
+.tritondigital.com # WRIF Podcasts
+.kellyservices.com
+dax.kellyservices.com
+portal.azure.net # Necessary for Azure
+portal.azure.com # Necessary for Azure
+make.powerautomate.com # Necessary for Azure
+amazon.com
+www.amazon.com
+g.live.com
+www.g.live.com
+feodotracker.abuse.ch # Ad Blocker List
+www.feodotracker.abuse.ch # Ad Blocker List
+mjt.lu # Warframe Email Change 1/13/24
+www.mjt.lu # Warframe Email Change 1/13/24
+tmx.bestbuy.com # Best Buy Login?
+www.tmx.bestbuy.com # Best Buy Login?
+context.bestbuy.com # Best Buy Login?
+www.context.bestbuy.com # Best Buy Login?
+s.click.aliexpress.com # AliExpress Links
+.nvidia.com # Nvidia App and related
+update.ixsystems.com
+link.storjshare.io
+.jnn-pa.googleapis.com
+.last.fm
+.ally-ra.gpcloudservice.com # Ally VPN
+.ouo.io # URL Shortener used for Emulation
