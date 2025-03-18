@@ -1,0 +1,5 @@
+# Title: MutschlerHome/blacklist.txt
+#
+# This hosts file is a personal collection of hosts to be blacklisted
+#
+# ===============================================================

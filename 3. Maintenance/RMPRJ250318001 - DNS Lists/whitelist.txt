@@ -1,4 +1,4 @@
-# Title: MutschlerHome/hosts
+# Title: MutschlerHome/whitelist.txt
 #
 # This hosts file is a personal collection of hosts to be whitelisted
 #
