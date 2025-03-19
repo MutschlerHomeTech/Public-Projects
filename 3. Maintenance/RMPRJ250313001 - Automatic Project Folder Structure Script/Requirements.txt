@@ -1,0 +1,46 @@
+# Workload Folder Creation Script
+## Notes and Requirements
+### Current folder structure is as follows. With each subsequent hyphen symbolizing a folder further down in the tree.
+
+# Workload folder is located in the user's profile directory located here "%USERPROFILE%\Documents", with the following structure.
+
+Workload
+- Changes
+-- 1. Discovery
+-- 2. Testing
+-- 3. Implementation
+-- 4. Completed
+-- 99. Uncategorized
+- Incidents
+-- 1. Investigation
+-- 2. On Hold
+-- 3. Resolved
+-- 99. Uncategorized
+- Projects
+-- 1. Discovery
+-- 2. Implementation
+-- 3. Maintenance
+-- 4. Decommissioned
+-- 99. Uncategorized
+
+### Inside each folder, subsequent folders will be created depending on the parent folder (Changes/Incidents/Projects) that start with the following naming
+### standard based on the parent folder.
+
+Changes - RMCHG
+Incidents - RMINC
+Projects - RMPRJ
+
+### The above prefix also includes the date the folder was created in the following format.
+
+(Year)25(Month)03(Day)19 -
+
+### After the hyphen, the title of the Change/Incident/Project is entered.
+
+For example, a new Change would look like this "RMCHG250319 - Test Change"
+For example, a new Incident would look like this "RMINC250319 - Test Incident"
+For example, a new Project would look like this "RMPRJ250319 - Test Project"
+
+## Script Requirements
+
+The script should prompt the user, asking which of the three parent folders the new folder will be entered in, followed by the name of the Change/Incident/Project.
+Afterwards, using the appropriate prefix, along with todays date, both in the correct format shown above, it creates a new folder that resembles the examples above.
