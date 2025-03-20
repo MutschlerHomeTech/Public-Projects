@@ -1,8 +1,9 @@
 ##########################################
-# AUTHOR   : Ryan Mutschler
-# DATE     : 3-19-2025
-# EDIT     : 3-19-2025
-# PURPOSE  : This script creates folders for Changes, Incidents, or Projects following the specified naming convention
+# AUTHOR    : Ryan Mutschler
+# DATE      : 3-19-2025
+# EDIT      : 3-19-2025
+# PURPOSE   : This script creates folders for Changes, Incidents, or Projects following the specified naming convention
+# REPOSITORY: https://wikipedia.mutschlerhome.com/books/windows-scripts/page/create-workloadfolder-v12
 #
 # VERSION   : 1.0     (Initial release)
 # VERSION   : 1.1     (URL subfolder creation)
@@ -11,12 +12,12 @@
 # Function to validate input is not empty
 
 # Function to validate input is not empty
-function Validate-Input {
+function Test-Input {
     param (
-        [string]$input
+        [string]$userInput
     )
     
-    if ([string]::IsNullOrWhiteSpace($input)) {
+    if ([string]::IsNullOrWhiteSpace($userInput)) {
         return $false
     }
     return $true

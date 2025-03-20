@@ -2,9 +2,9 @@
 # This script creates folders for Changes, Incidents, or Projects following the specified naming convention
 
 # Function to validate input is not empty
-function Validate-Input {
+function Test-Input {
     param (
-        [string]$input
+        [string]$userInput
     )
     
     return -not [string]::IsNullOrWhiteSpace($input)
@@ -104,10 +104,10 @@ while (-not $validSelection) {
 
 # Get the workload name
 $workloadName = ""
-while (-not (Validate-Input -input $workloadName)) {
+while (-not (Test-Input -userInput $workloadName)) {
     $workloadName = Read-Host "Enter the name of the $($workloadType.TrimEnd('s'))"
     
-    if (-not (Validate-Input -input $workloadName)) {
+    if (-not (Test-Input -userInput $workloadName)) {
         Write-Host "Name cannot be empty. Please enter a valid name." -ForegroundColor Red
     }
 }

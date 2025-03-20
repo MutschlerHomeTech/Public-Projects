@@ -2,12 +2,12 @@
 # This script creates folders for Changes, Incidents, or Projects following the specified naming convention
 
 # Function to validate input is not empty
-function Validate-Input {
+function Test-Input {
     param (
-        [string]$input
+        [string]$userInput
     )
     
-    if ([string]::IsNullOrWhiteSpace($input)) {
+    if ([string]::IsNullOrWhiteSpace($userInput)) {
         return $false
     }
     return $true
