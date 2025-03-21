@@ -67,3 +67,4 @@ last.fm
 ally-ra.gpcloudservice.com # Ally VPN
 ally.com
 ouo.io # URL Shortener used for Emulation
+brave.com
