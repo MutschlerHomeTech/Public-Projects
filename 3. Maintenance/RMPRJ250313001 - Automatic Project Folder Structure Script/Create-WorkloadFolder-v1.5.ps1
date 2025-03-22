@@ -11,6 +11,7 @@
 # VERSION   : 1.2     (Communications subfolder creation)
 # VERSION   : 1.3     (Added illegal character handling)
 # VERSION   : 1.4     (Changed to MutschlerHome folder structure)
+# VERSION   : 1.5     (Corrected subfolder structure)
 ##########################################
 
 # Function to check for illegal Windows folder name characters
@@ -51,11 +52,11 @@ catch {
 
 # Check if the workload folder exists, create it if not
 if (-not (Test-Path -Path $workloadBasePath)) {
-    Write-Host "Creating base Workload folder structure..."
+    Write-Host "Creating base MutschlerHome folder structure..."
     New-Item -Path $workloadBasePath -ItemType Directory | Out-Null
     
     # Create main category folders
-    $categories = @("Changes", "Incidents", "Projects")
+    $categories = @("Public Projects", "Internal Projects", "Work Projects", "Incidents")
     foreach ($category in $categories) {
         $categoryPath = Join-Path -Path $workloadBasePath -ChildPath $category
         New-Item -Path $categoryPath -ItemType Directory | Out-Null
@@ -63,12 +64,30 @@ if (-not (Test-Path -Path $workloadBasePath)) {
         # Create subcategories based on the parent folder
         $subcategories = @()
         switch ($category) {
-            "Changes" {
+            "Public Projects" {
                 $subcategories = @(
                     "1. Discovery", 
-                    "2. Testing", 
-                    "3. Implementation", 
-                    "4. Completed", 
+                    "2. Implementation", 
+                    "3. Maintenance", 
+                    "4. Decommissioned", 
+                    "99. Uncategorized"
+                )
+            }
+            "Internal Projects" {
+                $subcategories = @(
+                    "1. Discovery", 
+                    "2. Implementation", 
+                    "3. Maintenance", 
+                    "4. Decommissioned", 
+                    "99. Uncategorized"
+                )
+            }
+            "Work Projects" {
+                $subcategories = @(
+                    "1. Discovery", 
+                    "2. Implementation", 
+                    "3. Maintenance", 
+                    "4. Decommissioned", 
                     "99. Uncategorized"
                 )
             }
@@ -77,15 +96,6 @@ if (-not (Test-Path -Path $workloadBasePath)) {
                     "1. Investigation", 
                     "2. On Hold", 
                     "3. Resolved", 
-                    "99. Uncategorized"
-                )
-            }
-            "Projects" {
-                $subcategories = @(
-                    "1. Discovery", 
-                    "2. Implementation", 
-                    "3. Maintenance", 
-                    "4. Decommissioned", 
                     "99. Uncategorized"
                 )
             }
@@ -111,29 +121,35 @@ $prefix = ""
 
 while (-not $validSelection) {
     Write-Host "`nSelect the type of workload:" -ForegroundColor Yellow
-    Write-Host "1. Change"
-    Write-Host "2. Incident"
-    Write-Host "3. Project"
-    $selection = Read-Host "Enter your selection (1-3)"
+    Write-Host "1. Public Project"
+    Write-Host "2. Internal Project"
+    Write-Host "3. Work Project"
+    Write-Host "4. Incident"
+    $selection = Read-Host "Enter your selection (1-4)"
     
     switch ($selection) {
         "1" {
-            $workloadType = "Changes"
-            $prefix = "RMCHG"
+            $workloadType = "Public Projects"
+            $prefix = "RMPPRJ"
             $validSelection = $true
         }
         "2" {
+            $workloadType = "Internal Projects"
+            $prefix = "RMIPRJ"
+            $validSelection = $true
+        }
+        "3" {
+            $workloadType = "Work Projects"
+            $prefix = "RMWPRJ"
+            $validSelection = $true
+        }
+        "4" {
             $workloadType = "Incidents"
             $prefix = "RMINC"
             $validSelection = $true
         }
-        "3" {
-            $workloadType = "Projects"
-            $prefix = "RMPRJ"
-            $validSelection = $true
-        }
         default {
-            Write-Host "Invalid selection. Please enter a number between 1 and 3." -ForegroundColor Red
+            Write-Host "Invalid selection. Please enter a number between 1 and 4." -ForegroundColor Red
         }
     }
 }
@@ -234,17 +250,45 @@ $folderName = "$prefix$currentDate$sequenceNumber - $workloadName"
 Write-Host "`nSelect the subcategory:" -ForegroundColor Yellow
 $subcategories = @()
 switch ($workloadType) {
-    "Changes" {
+    "Public Projects" {
         Write-Host "1. Discovery"
-        Write-Host "2. Testing"
-        Write-Host "3. Implementation"
-        Write-Host "4. Completed"
+        Write-Host "2. Implementation"
+        Write-Host "3. Maintenance"
+        Write-Host "4. Decommissioned"
         Write-Host "5. Uncategorized"
         $subcategories = @(
             "1. Discovery", 
-            "2. Testing", 
-            "3. Implementation", 
-            "4. Completed", 
+            "2. Implementation", 
+            "3. Maintenance", 
+            "4. Decommissioned", 
+            "99. Uncategorized"
+        )
+    }
+    "Internal Projects" {
+        Write-Host "1. Discovery"
+        Write-Host "2. Implementation"
+        Write-Host "3. Maintenance"
+        Write-Host "4. Decommissioned"
+        Write-Host "5. Uncategorized"
+        $subcategories = @(
+            "1. Discovery", 
+            "2. Implementation", 
+            "3. Maintenance", 
+            "4. Decommissioned", 
+            "99. Uncategorized"
+        )
+    }
+    "Work Projects" {
+        Write-Host "1. Discovery"
+        Write-Host "2. Implementation"
+        Write-Host "3. Maintenance"
+        Write-Host "4. Decommissioned"
+        Write-Host "5. Uncategorized"
+        $subcategories = @(
+            "1. Discovery", 
+            "2. Implementation", 
+            "3. Maintenance", 
+            "4. Decommissioned", 
             "99. Uncategorized"
         )
     }
@@ -257,20 +301,6 @@ switch ($workloadType) {
             "1. Investigation", 
             "2. On Hold", 
             "3. Resolved", 
-            "99. Uncategorized"
-        )
-    }
-    "Projects" {
-        Write-Host "1. Discovery"
-        Write-Host "2. Implementation"
-        Write-Host "3. Maintenance"
-        Write-Host "4. Decommissioned"
-        Write-Host "5. Uncategorized"
-        $subcategories = @(
-            "1. Discovery", 
-            "2. Implementation", 
-            "3. Maintenance", 
-            "4. Decommissioned", 
             "99. Uncategorized"
         )
     }
